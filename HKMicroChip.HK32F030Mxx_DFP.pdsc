@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package schemaVersion="1.4" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>HKMicroChip</vendor>
+  <name>HK32F030Mxx_DFP</name>
+  <description>HKMicroChip HK32F030M ARM Cortex-M0 Device Family Pack Device Support</description>
+  <url>http://www.hsxp-hk.com/companyfile/2/</url>
+  <supportContact>laura.c@raisesunmicro.com</supportContact>
+  <!-- optional license file -->
+  <!-- 
+  <license>D:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\LICENSE.txt
+  </license>
+  -->
+  <!-- Modified by gbm, 01'2021 -->
+  
+  <releases>
+  	<release version="1.0.7" date="2020-12-09">
+        update the hk32f030m's RCC_CR  
+    </release> 
+  	<release version="1.0.6" date="2020-10-20">
+        update the hk32f030m's FLM 
+    </release> 
+  	<release version="1.0.5" date="2020-07-13">
+        1、update the hk32f030m ADC_CFGR1 BIT14
+        2、updated Flash Programming Algorithms 
+    </release> 
+ 	<release version="1.0.4" date="2020-06-30">
+        update the hk32f030m 's pack.
+    </release> 
+  	<release version="1.0.3" date="2020-06-16">
+         Fixed CMSIS folders and files.
+    </release>     
+    <release version="1.0.2" date="2020-03-17">
+         Fixed register display bug.
+    </release> 
+    <release version="1.0.1" date="2020-03-11">
+        add HK32F030MF4U6.
+    </release>
+    <release version="1.0.0" date="2020-03-03">
+        First Release version of HKMicroChip HK32F030M Device Family Pack.
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>HK_MicroChip</keyword>
+    <keyword>HK32F030M</keyword>
+    <keyword>HK</keyword>
+    <keyword>HKMicroChip</keyword>
+  </keywords>
+
+  <devices>
+  <family Dfamily="HK32F030M Series" Dvendor="HK_MicroChip:160">
+    <processor Dcore="Cortex-M0" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian"/>
+    <description>
+      The HKMicroChip HK32F030M device family contains an ARM Cortex-M0 processor, running up to 32 MHz with a versatile set of on-chip peripherals.
+      Operating voltage range： main power supply VDD 1.8V ~ 3.6V. 
+      - 18IO
+      - USART
+      - SPI_I2S
+      - TIMER%PWM
+      - ADC 
+      - Beeper
+      - 64-bit unique ID
+    </description>
+		<debug svd="SVD/HK32F030M.svd"/>
+		<algorithm name="Flash/HK32F030MXX_16.FLM" start="0x08000000" size="0x4000" default="1"/>
+		<algorithm name="Flash/HK32F030MXX_OPT.FLM" start="0x1FFFF800" size="0x00000018" default="0"/>
+		<algorithm name="Flash/HK32F030MXX_EEPROM.FLM" start="0x0C000000" size="0x000001C0" default="0"/>
+    <!-- ************************  Sub-family 'HK32F030M'  **************************** -->
+    <subFamily DsubFamily="HK32F030M">
+      <processor  Dclock="32000000"/>
+	  <compile header="Device/CMSIS/HK/Include/hk32f030m.h"/>
+      <!-- *************************  Device 'HK32F030MF4U6'  ***************************** -->
+      <device Dname="HK32F030MF4U6">
+        <compile define="HK32F030MF4U6"/>
+        <memory     name="FLASH"  access="rx"        start="0x08000000"  size="0x4000"     startup="1"   default="1"/>
+        <memory     name="SRAM"  access="rw"        start="0x20000000"  size="0x800"     init   ="0"   default="1"/>
+        <feature type="IOs"           n="16"/>
+      </device>          
+        
+      <!-- *************************  Device 'HK32F030MF4P6'  ***************************** -->
+      <device Dname="HK32F030MF4P6">
+        <compile define="HK32F030MF4P6"/>
+        <memory     name="FLASH"  access="rx"        start="0x08000000"  size="0x4000"     startup="1"   default="1"/>
+        <memory     name="SRAM"  access="rw"        start="0x20000000"  size="0x800"     init   ="0"   default="1"/>
+        <feature type="IOs"           n="16"/>
+      </device>
+       
+      <!-- *************************  Device 'HK32F030MD4P6'  ***************************** -->
+      <device Dname="HK32F030MD4P6">
+        <compile define="HK32F030MD4P6"/>
+        <memory     name="FLASH"  access="rx"        start="0x08000000"  size="0x4000"     startup="1"   default="1"/>
+        <memory     name="SRAM"  access="rw"        start="0x20000000"  size="0x800"     init   ="0"   default="1"/>
+        <feature type="IOs"           n="14"/>
+      </device>
+      
+      <!-- *************************  Device 'HK32F030MJ4M6'  ***************************** -->
+      <device Dname="HK32F030MJ4M6">
+        <compile define="HK32F030MJ4M6"/>
+        <memory     name="FLASH"  access="rx"        start="0x08000000"  size="0x4000"     startup="1"   default="1"/>
+        <memory     name="SRAM"  access="rw"        start="0x20000000"  size="0x800"     init   ="0"   default="1"/>
+        <feature type="IOs"           n="6"/>
+      </device>  
+        
+    </subFamily>   
+  </family>
+  </devices>
+
+ 
+  <!--
+  <examples>
+  </examples>
+  -->
+  
+<conditions>
+ <condition id="HK32F030M">
+  <description> HKMicroChip HK32F030M Series Devices</description>
+    <require Dvendor="HK_MicroChip:160"  Dname="HK32F030M*"/>
+ </condition>
+   
+ <condition id="Compiler ARM">
+  <description>Compiler assembler file for ARMCC</description>
+  <require Tcompiler="ARMCC"/>
+ </condition> 
+
+	<condition id="HK32F030MF4U6 ARM">
+	  <description>HK32F030MF4U6  assembler file for ARMCC</description>
+	  <require Dvendor="HK_MicroChip:160"  Dname="HK32F030MF4U6"/>
+	  <require condition="Compiler ARM"/>
+	</condition>
+ 
+	<condition id="HK32F030MF4P6 ARM">
+	  <description>HK32F030MF4P6  assembler file for ARMCC</description>
+	  <require Dvendor="HK_MicroChip:160"  Dname="HK32F030MF4P6"/>
+	  <require condition="Compiler ARM"/>
+	</condition>
+
+ <condition id="HK32F030MD4P6 ARM">
+   <description>HK32F030MD4P6  assembler file for ARMCC</description>
+   <require Dvendor="HK_MicroChip:160"  Dname="HK32F030MD4P6"/>
+   <require condition="Compiler ARM"/>
+ </condition>
+ 
+ <condition id="HK32F030MJ4M6 ARM">
+   <description>HK32F030MJ4M6  assembler file for ARMCC</description>
+   <require Dvendor="HK_MicroChip:160"  Dname="HK32F030MJ4M6"/>
+   <require condition="Compiler ARM"/>
+ </condition>
+    
+ <condition id="HK32F030M CMSIS-Core">
+	  <!-- conditions selecting Devices -->
+	  <description>HKMicroChip HK32F030M Series devices and CMSIS-Core (Cortex-M)</description>
+	  <require condition="HK32F030M"/>
+	  <require condition="Compiler ARM"/>
+ </condition>  
+</conditions>
+  
+  <!-- component section (optional for all Software Packs)-->
+<components>
+  <component Cclass="Device" Cgroup="Startup" Cversion="1.0.0" condition="HK32F030M CMSIS-Core">
+  <description>System Startup for HKMicroChip HK32F030M Series</description>
+  <files>
+    <!--  include folder -->
+    <file category="include" name="Device/CMSIS/HK32F030M/Include/"/>
+
+    <!-- startup files -->
+    <!-- ARM Compiler Toolchain -->
+    <file category="source"  name="Device/CMSIS/HK32F030M/Source/ARM/KEIL_Startup_hk32f030m.s" attr="config" condition="Compiler ARM" version="1.0.0"/>
+
+  </files>
+  </component>
+  <component Cclass="Device" Cgroup="SystemInit" Cversion="1.0.0" condition="HK32F030M CMSIS-Core">
+  <description>SystemInit module for HKMicroChip HK32F030M Series</description>
+  <files>
+	<!-- system file -->
+	<file category="source" name="Device/CMSIS/HK32F030M/Source/system_hk32f030m.c" attr="config" version="1.0.0"/>
+  </files>
+  </component>
+</components>
+</package>
